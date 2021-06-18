@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Ninja</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+    integrity="undefined" crossorigin="anonymous">
+</head>
+<body>
+    <form class="form-group" action="/new-ninja/add" method="post">
+        <h1 class="display-4">New Ninja</h1>
+        <p>
+            Dojo:
+            <select class="custom-select" name="dojo_id">
+                {% for dojo in dojos%}
+                    {% if dojo['id'] == 0 %}
+                    <option selected value="{{dojo['id']}}">{{dojo["name"]}}
+                        {% else %}
+                        <option value="{{dojo['id']}}">{{dojo["name"]}}
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </p>
+        <p>
+            First Name:
+            <input class="form-control" type="text" name="first_name" id="">
+        </p>
+        <p>
+            Last Name:
+            <input class="form-control" type="text" name="last_name" id="">
+        </p>
+        <p>
+            Age:
+            <input class="form-control" type="text" name="age" id="">
+        </p>
+        <p>
+            <input class="btn btn-primary" type="submit" value="Add a Ninja">
+        </p>
+    </form>
+    <a href="/dojos" class="btn btn-danger">Home</a>
+</body>
+</html>

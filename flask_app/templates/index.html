@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+    integrity="undefined" crossorigin="anonymous">
+    <style>
+        .sidebyside{
+            display:flex;
+            justify-content:space-around;
+        }
+        .rmvstyle{
+            color:black;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebyside">
+        <form class="form-group" action="/dojo/create" method="post">
+        <h1 class="display-4">New Dojo</h1>
+        <input class="form-control" type="text" name="name" id=""><br>
+        <input class="btn btn-primary" type="submit" value="Add New">
+        </form>
+        <div>
+            <h1 class="display-4">All Dojos</h1>
+            <table class="table">
+                <thead class="thead-dark">
+
+                    <th scope="col">Name</th>
+                </thead>
+                <tbody>
+                {%for dojo in results%}
+                    <tr>
+                        <td scope="row"><a href="dojo/{{dojo.id}}/{{dojo.name}}"class="rmvstyle" href="" class="btn btn-link">{{dojo.name}}</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="/ninja/add" class="btn btn-info"">Add a Ninja</a>
+        </div>
+    </div>
+</body>
+</html>
